@@ -12,9 +12,15 @@ async def on_ready():
   print(bot.user.id)
   
 @bot.command(pass_context=True)
-async def leave(ctx, server: id):
+async def leave(ctx, server: int):
   server = ctx.message.server.id
   bot.get_server(server)
   await bot.leave(server)
+  
+@bot.command()
+async def servers():
+  servers = list(bot.servers)
+  await bot.say("Connected on " + str(len(bot.servers)) + " servers:")
+  await bot.say('\n'.join(server.id for server in servers))
   
 bot.run(os.environ['BOT_TOKEN'])
