@@ -12,8 +12,8 @@ async def on_ready():
   print(bot.user.id)
   
 @bot.command(pass_context=True)
-async def leave(ctx, server: int):
-  server = ctx.message.server
+async def leave(ctx, server: id):
+  server = ctx.message.server(id)
   await bot.say("bye i'm leaving :)")
   await bot.leave(server)
   
