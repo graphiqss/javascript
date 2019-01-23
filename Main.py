@@ -3,6 +3,8 @@ from discord.ext import commands
 import os
 import asyncio
 
+bot = commands.bot(command_prefix=".")
+
 @bot.event
 async def on_ready():
   print("Logged in as")
