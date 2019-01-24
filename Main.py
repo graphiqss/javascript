@@ -13,7 +13,7 @@ async def on_ready():
   
 @bot.command(pass_context=True)
 async def leave(ctx, server: int):
-  server = bot.get_server(id)
+  server = bot.get_server(int)
   await bot.send_message(server, "bye Im leaving")
   await bot.leave_server(server)
   
